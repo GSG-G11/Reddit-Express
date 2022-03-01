@@ -1,0 +1,57 @@
+<html>
+<head>
+    <title>Login/Sign Up Form</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+
+<body>
+    <div class="container" id="container">
+        <!-- sign in page -->
+        <div class="form-container sign-in-container">
+            <form method="POST" action="main.html" class="form" id="login">
+                <h1 class="form__title">Login</h1>
+                <div class="form__input-group">
+                    <input placeholder="Email" id="email" type="email" class="form__input" name="email" id="email"
+                        maxlength="20">
+                    <p id="emailErr" class="error"></p>
+
+
+                </div>
+                <div class="form__input-group">
+                    <input placeholder="Password" id="password" type="password" class="form__input" name="pass"
+                        id="pass" maxlength="20">
+                    <p id="passwordErr" class="error"></p>
+
+                </div>
+                <div class="form__input-group">
+                    <input placeholder="Confirm Password" id="confirmPassword" type="password" class="form__input"
+                        name="confirmPassword" id="confirmPassword" maxlength="20">
+                    <p id="passwordErr" class="error"></p>
+
+                </div>
+                <div class="form__input-group">
+                    <p id="confirmErr" class="error"></p>
+
+                    <button type="submit" class="form__button" id="sub">Submit</button>
+                </div>
+            </form>
+        </div>
+
+
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <img class="imgclass" src="assets/logo.png" alt="logo" width="100" height="100">
+                <div class="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Welcome to Reddit</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+
+</body>
+</html>
