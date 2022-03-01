@@ -43,7 +43,4 @@ const submitHandler = (e) => {
     confirmPass.style.borderColor = 'red';
     e.preventDefault();
   }
-// if(confirmPass.value == password.value){
-//   window.open('html/main.html', '_self')
-// }
 };
