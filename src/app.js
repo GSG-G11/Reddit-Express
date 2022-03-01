@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(filePath));
 
 const router = express.Router();
-app.set('port', process.env.PORT || 4000);
+app.set('port', process.env.PORT || 8000);
 
 router.get('/', (req, res) => {
   res.send('Hello World');
