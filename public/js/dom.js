@@ -8,20 +8,41 @@ const createElement = (tagName, className, parent) => {
   parent.appendChild(element);
   return element;
 };
-const handleNews = () => {
+
+const searchBtn = querySelector('#searchBtn');
+const searchInput = querySelector('#searchInput');
+
+searchBtn.addEventListener('click', () => {
+  if (searchInput.value !== '') {
+    fetchData(searchInput)
+      .then((response) => response.json())
+      .then(handleNews);
+  }
+});
+
+const handleNews = (res) => {
+
   const newsSection = querySelector('.news-section');
+  newsSection.textContent ='';
+for(let i = 0; i<=20; i++){
   const card = createElement('div', 'news-card', newsSection);
   const newsImg = createElement('img', 'news-img', card);
-  newsImg.src = '../assets/Header.svg';
+  const thumbnail =  res.data.children[i].data.thumbnail;
+  if(thumbnail == "self" || thumbnail== "default"|| thumbnail== ""){
+    newsImg.src = '../assets/Header.svg';
+  }else{
+    newsImg.src = thumbnail;
+  }
   const details = createElement('div', 'news-details', card);
   const newsCategory = createElement('p', 'news-category', details);
-  newsCategory.textContent = 'Palestine';
+  newsCategory.textContent = res.data.children[i].data.subreddit;
   const newsTitle = createElement('a', 'news-title', details);
+  newsTitle.href = res.data.children[i].data.url_overridden_by_dest;
   newsTitle.textContent =
-    'Live from the Israeli Embassy - Solidarity with Paletine protest';
+  res.data.children[i].data.title;
   const newsDesc = createElement('a', 'news-desc', details);
-  newsDesc.textContent =
-    'Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga quae delectus maxime, quasi incidunt voluptatum.';
+  newsDesc.textContent = res.data.children[i].data.selftext;
+}
 };
 
-handleNews();
+
