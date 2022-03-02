@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const router = require('./routes/route');
-const { clientError, serverError } = require('./controllers/error')
+const { clientError, serverError } = require('./controllers/error');
 
 const app = express();
 const filePath = path.join(__dirname, '..', '..', 'public');
@@ -17,4 +17,3 @@ router.use(clientError);
 router.use(serverError);
 
 module.exports = app;
-//
