@@ -14,14 +14,14 @@
   "dependencies": {
     "-": "^0.0.1",
     "express": "^4.17.3",
-    "node-fetch": "^2.6.7"
+    "node-fetch": "^2.6.7",
+    "supertest": "^6.2.2"
   },
   "devDependencies": {
     "eslint": "^8.10.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.4",
     "jest": "^27.5.1",
-    "nodemon": "^2.0.15",
-    "supertest": "^6.2.2"
+    "nodemon": "^2.0.15"
   }
 }
