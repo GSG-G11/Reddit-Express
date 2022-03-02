@@ -1,4 +1,6 @@
+
 # Reddit Express
+
 
 - [Description](#Description)
 - [Features](#features)
@@ -11,6 +13,7 @@
 - [Team Members](#team)
 
 ## ✧ <span id='Description'>Description</span>
+
 
 Reddit Express is a Web-based services that collect thousands of posts available on Reddit and organized by subreddits tilte.
 
@@ -36,6 +39,7 @@ After this you will see an input which takes a specific subreddit to search, and
 - As a user, I want to be able to search of any specific subreddits.
 - As a user, I want to be able to see all the recent posts on the specific subreddit I searched for.
 
+
 ## ✧ <span id='Technology'>Technology and Tools that we used</span>
 
 - HTML
@@ -46,28 +50,28 @@ After this you will see an input which takes a specific subreddit to search, and
 - Postman
 - Heroku
 
+
 ## ✧ <span id="setup">Setup</span>
 
-Dev Dependencies
+> Dev Dependencies
 
 - eslint
 - nodemon
 - jest
 - supertest
 
-Dependencies
+> Dependencies
 
 - express
 - node-fetch@2
 
 ## ✧ <span id='install'>Installing the project locally</span>
 
-- https://github.com/GSG-G11/Reddit-Express
-- code Reddit-Express
-- npm i
-- npm run start
+- `https://github.com/GSG-G11/Reddit-Express`
+- `code Reddit-Express`
+- `npm i`
+- `npm run start`
 
 ## ✧ <span id='team'>Team Members</span>
-
 - [Ayman Fahgan](https://github.com/AFahgan)
 - [Nada Abuzaid](https://github.com/nada-abuzaid)
