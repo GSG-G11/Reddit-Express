@@ -24,14 +24,6 @@ body {
   height: 100vh;
 }
 
-a {
-  text-decoration: none;
-  color: var(--white);
-  text-transform: uppercase;
-  font-size: 15px;
-  font-weight: bold;
-}
-
 .form__title {
   font-weight: bold;
   margin: 1rem 1rem 2rem 1rem;
@@ -47,11 +39,15 @@ p {
 }
 
 .form__button {
-  border-radius: 10px;
-  border: 1px solid var(--main-color);
-  background-color: var(--main-color);
-  padding: 15px 45px;
-  letter-spacing: 1px;
+	border-radius: 10px;
+	border: 1px solid var(--main-color);
+	background-color: var(--main-color);
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
   width: 300px;
 }
 
@@ -89,7 +85,6 @@ p {
   position: absolute;
   top: 0;
   height: 100%;
-  transition: all 0.6s ease-in-out;
 }
 
 .sign-in-container {
@@ -132,13 +127,13 @@ p {
   height: 100%;
   width: 50%;
   transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
 }
 
 .overlay-right {
   right: 0;
   transform: translateX(0);
 }
+
 .imgclass {
   position: absolute;
   top: 50;
@@ -149,14 +144,14 @@ p {
   object-fit: cover;
   margin-right: -46px;
 }
+
 .error {
   width: 70%;
   min-height: 1.5em;
   margin: 0.2em auto 0.5em;
   text-align: center;
-  font-size: 10px;
+  font-size: 12px;
   color: var(--main-color);
-  text-transform: uppercase;
   font-weight: bold;
   white-space: nowrap;
   margin-right: 55px;

@@ -2,39 +2,43 @@ const email = document.querySelector('#email');
 const emailErr = document.querySelector('#emailErr');
 const password = document.querySelector('#password');
 const passwordErr = document.querySelector('#passwordErr');
-const confirmPass = document.querySelector('#confirmPassword');
+const confirmPassword = document.querySelector('#confirmPassword');
 const confirmPassErr = document.querySelector('#confirmErr');
 const submit = document.querySelector('button');
 
-const submitHandler = (e) => {
-  if (emailErr.firstChild) emailErr.removeChild(emailErr.firstChild);
-  if (passwordErr.firstChild) passwordErr.removeChild(passwordErr.firstChild);
-  if (confirmPassErr.firstChild) confirmPassErr.removeChild(confirmPassErr.firstChild);
-  email.style.borderColor = 'black';
-  password.style.borderColor = 'black';
-  confirmPass.style.borderColor = 'black';
-  if (email.value.length === 0) {
-    const err = document.createTextNode('PLEASE ENTER AN EMAIL ADDRESS');
-    emailErr.appendChild(err);
-    email.style.borderColor = 'red';
-    e.preventDefault();
-  } else if (!/^\w+@\w+\.\w+$/.test(email.value)) {
-    const err = document.createTextNode('PLEASE ENTER A VALID EMAIL ADDRESS');
-    emailErr.appendChild(err);
-    email.style.borderColor = 'red';
-    e.preventDefault();
-  } else if (password.value.length === 0) {
-    const err = document.createTextNode('PLEASE ENTER A PASSWORD');
-    passwordErr.appendChild(err);
-    password.style.borderColor = 'red';
-    e.preventDefault();
-  } else if (
-    confirmPass.value.length === 0 || confirmPass.value !== password.value
-  ) {
-    const err = document.createTextNode("PASSWORD YOU'VE ENTERED DO NOT MATCH");
-    confirmPassErr.appendChild(err);
-    confirmPass.style.borderColor = 'red';
-    e.preventDefault();
+const empty = () => {
+  emailErr.textContent = '';
+  passwordErr.textContent = '';
+  confirmPassErr.textContent = '';
+};
+
+const errorHandle = (errorText, inputBox, errorLabel, e) => {
+  const err = document.createTextNode(errorText);
+  errorLabel.appendChild(err);
+  // eslint-disable-next-line no-param-reassign
+  inputBox.style.borderColor = '#ff4500';
+  e.preventDefault();
+};
+
+const submitHandler = (event) => {
+  if (email.validity.valueMissing) {
+    empty();
+    errorHandle('Please enter an email address', email, emailErr, event);
+  } else if (email.validity.typeMismatch) {
+    empty();
+    errorHandle('Please enter a valid email address', email, emailErr, event);
+  } else if (password.validity.valueMissing) {
+    empty();
+    errorHandle('Please enter a password', password, passwordErr, event);
+  } else if (password.value.length < 8) {
+    empty();
+    errorHandle('Please enter at least 8 charachters', password, passwordErr, event);
+  } else if (confirmPassword.validity.valueMissing) {
+    empty();
+    errorHandle('Please confirm the password', confirmPassword, confirmPassErr, event);
+  } else if (password.value !== confirmPassword.value) {
+    empty();
+    errorHandle('Please confirm the password', confirmPassword, confirmPassErr, event);
   }
 };
 
