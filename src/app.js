@@ -14,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(filePath));
 app.use(router);
 
-app.set('port', process.env.PORT || 9000);
+app.set('port', process.env.PORT || 8000);
 
 router.use(clientError);
 router.use(serverError);

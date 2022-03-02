@@ -14,30 +14,25 @@
     <div class="container" id="container">
         <!-- sign in page -->
         <div class="form-container sign-in-container">
-            <form class="form" id="login">
+            <form class="form" id="login" method="POST" action="/" novalidate>
                 <h1 class="form__title">Sign in</h1>
                 <div class="form__input-group">
-                    <input placeholder="Email" id="email" type="email" class="form__input" name="email" id="email">
+                    <input placeholder="Email" id="email" type="email" class="form__input" required>
                     <p id="emailErr" class="error"></p>
                 </div>
                 <div class="form__input-group">
                     <input placeholder="Password" id="password" type="password" class="form__input" name="pass"
-                        id="pass" maxlength="20">
+                        maxlength="20" required>
                     <p id="passwordErr" class="error"></p>
 
                 </div>
                 <div class="form__input-group">
                     <input placeholder="Confirm Password" id="confirmPassword" type="password" class="form__input"
-                        name="confirmPassword" id="confirmPassword" maxlength="20">
-                    <p id="passwordErr" class="error"></p>
-
+                        name="confirmPassword" id="confirmPassword" maxlength="20" required>
+                    <p id="confirmErr" class="error"></p>
                 </div>
                 <div class="form__input-group">
-                    <p id="confirmErr" class="error"></p>
-
-                    <button type="submit" class="form__button" id="sub">
-                        <a href="html/main.html">Submit</a>
-                    </button>
+                    <button type="submit" class="form__button" id="sub">Submit</button>
                 </div>
             </form>
         </div>
