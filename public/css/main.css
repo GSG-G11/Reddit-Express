@@ -18,6 +18,10 @@
   --black: #000000;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* scrollbar */
 ::-webkit-scrollbar {
   width: 5px;
@@ -202,6 +206,11 @@
 
 .news-title {
   font-size: 1.2rem;
+  color: var(--dark-gray);
+  max-width: 380px;
+  overflow: hidden;
+  text-align: justify;
+  max-height: 70px;
 }
 
 .news-details .news-title:hover {
@@ -211,20 +220,20 @@
 .news-details .news-desc {
   color: var(--light-gray3);
   font-size: 1rem;
-  width: 500px;
-  height: 80px;
+  max-width: 380px;
+  max-height: 60px;
   overflow: hidden;
   text-align: justify;
 }
-.notFound{
-  grid-template-columns: 1fr!important;
+.notFound {
+  grid-template-columns: 1fr !important;
   color: var(--main-color);
   font-size: 1.8rem;
   font-weight: 600;
   width: 100%;
   text-align: center;
 }
-.notFoundimg{
+.notFoundimg {
   width: 100px;
   height: 100px;
 }
