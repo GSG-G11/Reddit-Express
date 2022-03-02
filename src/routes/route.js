@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-const fetchNewsData  = require('../controllers/fetch');
+const fetchNewsData = require('../controllers/fetch');
 
 const router = express.Router();
 
@@ -11,6 +11,5 @@ router.use(express.static(filePath));
 router.post('/search', (req, res) => {
   fetchNewsData(req, res);
 });
-
 
 module.exports = router;

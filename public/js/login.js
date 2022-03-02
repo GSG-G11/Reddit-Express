@@ -1,4 +1,3 @@
-const form = document.querySelector('form');
 const email = document.querySelector('#email');
 const emailErr = document.querySelector('#emailErr');
 const password = document.querySelector('#password');
@@ -7,19 +6,14 @@ const confirmPass = document.querySelector('#confirmPassword');
 const confirmPassErr = document.querySelector('#confirmErr');
 const submit = document.querySelector('button');
 
-submit.addEventListener('click', (e) => {
-  submitHandler(e);
-});
-
 const submitHandler = (e) => {
   if (emailErr.firstChild) emailErr.removeChild(emailErr.firstChild);
   if (passwordErr.firstChild) passwordErr.removeChild(passwordErr.firstChild);
-  if (confirmPassErr.firstChild)
-    confirmPassErr.removeChild(confirmPassErr.firstChild);
+  if (confirmPassErr.firstChild) confirmPassErr.removeChild(confirmPassErr.firstChild);
   email.style.borderColor = 'black';
   password.style.borderColor = 'black';
   confirmPass.style.borderColor = 'black';
-  if (email.value.length == 0) {
+  if (email.value.length === 0) {
     const err = document.createTextNode('PLEASE ENTER AN EMAIL ADDRESS');
     emailErr.appendChild(err);
     email.style.borderColor = 'red';
@@ -29,14 +23,13 @@ const submitHandler = (e) => {
     emailErr.appendChild(err);
     email.style.borderColor = 'red';
     e.preventDefault();
-  } else if (password.value.length == 0) {
+  } else if (password.value.length === 0) {
     const err = document.createTextNode('PLEASE ENTER A PASSWORD');
     passwordErr.appendChild(err);
     password.style.borderColor = 'red';
     e.preventDefault();
   } else if (
-    confirmPass.value.length == 0 ||
-    confirmPass.value != password.value
+    confirmPass.value.length === 0 || confirmPass.value !== password.value
   ) {
     const err = document.createTextNode("PASSWORD YOU'VE ENTERED DO NOT MATCH");
     confirmPassErr.appendChild(err);
@@ -44,3 +37,7 @@ const submitHandler = (e) => {
     e.preventDefault();
   }
 };
+
+submit.addEventListener('click', (e) => {
+  submitHandler(e);
+});
