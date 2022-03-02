@@ -1,6 +1,10 @@
-const app = require('./app');
+const express = require('express');
+const path = require('path');
+const { clientError, serverError } = require('./controllers/error');
 
-app.listen(app.get('port'), () => {
-  console.log('App running on port', app.get('port'));
-  console.log('http://localhost:8000');
-});
+module.exports = {
+  express,
+  path,
+  clientError,
+  serverError,
+};
