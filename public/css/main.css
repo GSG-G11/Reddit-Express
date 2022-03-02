@@ -234,3 +234,11 @@ a {
   padding: 0;
   display: none;
 }
+.notFound {
+  grid-template-columns: 1fr !important;
+  color: var(--main-color);
+  font-size: 1.8rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+}
