@@ -1,9 +1,9 @@
-const querySelector = (selector) => {
-  return document.querySelector(selector);
-};
+/* eslint-disable no-undef */
+/* eslint-disable no-use-before-define */
+const querySelector = (selector) => document.querySelector(selector);
 
 const createElement = (tagName, className, parent) => {
-  let element = document.createElement(tagName);
+  const element = document.createElement(tagName);
   element.className = className;
   parent.appendChild(element);
   return element;
@@ -23,31 +23,30 @@ searchBtn.addEventListener('click', () => {
 const handleNews = (res) => {
   const newsSection = querySelector('.news-section');
   newsSection.textContent = '';
-  if(res.data.length >0){
-  
-  for (let i = 0; i <= 20; i++) {
-    const card = createElement('div', 'news-card', newsSection);
-    const newsImg = createElement('img', 'news-img', card);
-    const thumbnail = res.data.children[i].data.thumbnail;
-    if (thumbnail == 'self' || thumbnail == 'default' || thumbnail == '') {
-      newsImg.src = '../assets/Header.svg';
-    } else {
-      newsImg.src = thumbnail;
+  if (res.error !== 404) {
+    for (let i = 0; i <= 20; i += 1) {
+      const card = createElement('div', 'news-card', newsSection);
+      const newsImg = createElement('img', 'news-img', card);
+      const { thumbnail } = res.data.children[i].data;
+      if (thumbnail === 'self' || thumbnail === 'default' || thumbnail === '') {
+        newsImg.src = '../assets/Header.svg';
+      } else {
+        newsImg.src = thumbnail;
+      }
+      const details = createElement('div', 'news-details', card);
+      const newsCategory = createElement('p', 'news-category', details);
+      newsCategory.textContent = res.data.children[i].data.subreddit;
+      const newsTitle = createElement('a', 'news-title', details);
+      newsTitle.href = res.data.children[i].data.url_overridden_by_dest;
+      newsTitle.textContent = res.data.children[i].data.title;
+      const newsDesc = createElement('a', 'news-desc', details);
+      newsDesc.textContent = res.data.children[i].data.selftext;
     }
-    const details = createElement('div', 'news-details', card);
-    const newsCategory = createElement('p', 'news-category', details);
-    newsCategory.textContent = res.data.children[i].data.subreddit;
-    const newsTitle = createElement('a', 'news-title', details);
-    newsTitle.href = res.data.children[i].data.url_overridden_by_dest;
-    newsTitle.textContent = res.data.children[i].data.title;
-    const newsDesc = createElement('a', 'news-desc', details);
-    newsDesc.textContent = res.data.children[i].data.selftext;
-  }
-}else{
-  console.log("nothing found")
-  newsSection.textContent = '';
-    const aNotFou = document.createElement('div');
+  } else {
+    newsSection.textContent = '';
+    const aNotFou = document.createElement('p');
     aNotFou.classList.add('notFound');
-    aNotFou.textContent="Sorry, we didn't find any Subs!"
-   
-} };
+    aNotFou.textContent = "Sorry, we didn't find any Subs!";
+    newsSection.appendChild(aNotFou);
+  }
+};
