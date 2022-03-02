@@ -242,3 +242,48 @@ a {
   width: 100%;
   text-align: center;
 }
+
+
+@media screen and (max-width: 450px){
+
+  .news-card .news-img {
+    width: 300px;
+    height: 200px;
+    border-radius: 10px 0px 0px 10px;
+    overflow: hidden;
+    cursor: pointer;
+    filter: brightness(0.8);
+  }
+  
+  .news-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    width: 500px;
+  }
+  
+  .news-details .news-category {
+    color: var(--white);
+    padding: 0.4rem 1.2rem;
+    background-color: var(--main-color);
+    font-size: 0.8rem;
+    align-self: flex-start;
+    border-radius: 2px;
+  }
+  .news-title {
+    font-size: 1.2rem;
+ 
+    max-width: 500px;
+  
+ 
+    max-height: 70px;
+  }
+.news-details .news-desc {
+
+  font-size: 1rem;
+  max-width: 100px;
+  max-height: 60px;
+ 
+}
+
+}
