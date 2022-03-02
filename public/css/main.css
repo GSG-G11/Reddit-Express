@@ -237,3 +237,11 @@ a {
   width: 100px;
   height: 100px;
 }
+.notfound-img {
+  width: 45%;
+  height: 60%;
+  object-fit: cover;
+  margin: 0 auto;
+  padding: 0;
+  display: none;
+}
