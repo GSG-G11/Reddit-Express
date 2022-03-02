@@ -1,7 +1,10 @@
-const express = require('express');
-const path = require('path');
 const router = require('./routes/route');
-const { clientError, serverError } = require('./controllers/error');
+const {
+  express,
+  path,
+  clientError,
+  serverError,
+} = require('./index');
 
 const app = express();
 const filePath = path.join(__dirname, '..', '..', 'public');
@@ -11,7 +14,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.static(filePath));
 app.use(router);
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 9000);
 
 router.use(clientError);
 router.use(serverError);

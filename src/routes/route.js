@@ -1,5 +1,7 @@
-const express = require('express');
-const path = require('path');
+const {
+  express, path,
+} = require('../index');
+
 const fetchNewsData = require('../controllers/fetch');
 
 const router = express.Router();
