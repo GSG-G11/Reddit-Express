@@ -1,4 +1,6 @@
-# Reddit News
+
+# Reddit Express
+
 
 - [Description](#Description)
 - [Features](#features)
@@ -11,24 +13,32 @@
 - [Team Members](#team)
 
 ## ✧ <span id='Description'>Description</span>
- Reddit News is a Web-based services that collect  thousands of news available on the Internet and tagged with specific keyword.
+
+
+Reddit Express is a Web-based services that collect thousands of posts available on Reddit and organized by subreddits tilte.
+
 ## ✧ <span id="features">Features</span>
+
 - Simple UI.
 - Responsive.
 - Fetch data from Backend.
 - Handle user errors and server errors.
+
 ## ✧ <span id='Links'>Links</span>
 
 - [Live link](https://reddit-express-nada-ayman.herokuapp.com/)
 
 ## ✧ <span id='Journey'>User Journey</span>
 
-The user will open the Reddit News website, then he will see an input which takes a specific keyword to search, if he searches about a specific keyword will see all the news related with it.
+When you visit Reddit Express, you will be presented with a create account page and you must enter your email address and password in order to go to Reddit Express main page.
+After this you will see an input which takes a specific subreddit to search, and if you searches about a subreddit you will be able to see all recent posts on it.
 
 ## ✧ <span id='stories'>User Stories</span>
 
-- As a user, I want to be able to search of any specific keywords.
-- As a user, I want to be able to see all news that related with specific keyword.
+- As a user, I want to create an account on Reddit Express
+- As a user, I want to be able to search of any specific subreddits.
+- As a user, I want to be able to see all the recent posts on the specific subreddit I searched for.
+
 
 ## ✧ <span id='Technology'>Technology and Tools that we used</span>
 
@@ -44,12 +54,14 @@ The user will open the Reddit News website, then he will see an input which take
 ## ✧ <span id="setup">Setup</span>
 
 > Dev Dependencies
+
 - eslint
 - nodemon
 - jest
 - supertest
 
 > Dependencies
+
 - express
 - node-fetch@2
 
