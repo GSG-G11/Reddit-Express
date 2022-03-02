@@ -225,18 +225,7 @@ a {
   overflow: hidden;
   text-align: justify;
 }
-.notFound {
-  grid-template-columns: 1fr !important;
-  color: var(--main-color);
-  font-size: 1.8rem;
-  font-weight: 600;
-  width: 100%;
-  text-align: center;
-}
-.notFoundimg {
-  width: 100px;
-  height: 100px;
-}
+
 .notfound-img {
   width: 45%;
   height: 60%;
