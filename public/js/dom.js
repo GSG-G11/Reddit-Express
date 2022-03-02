@@ -57,3 +57,8 @@ const handleNews = (res) => {
     }
   }
 };
+searchInput.addEventListener("keyup", (event) => {
+  if (event.keyCode === 13) {
+    event.preventDefault();
+    searchBtn.click();
+  }})
