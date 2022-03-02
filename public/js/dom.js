@@ -8,9 +8,10 @@ const createElement = (tagName, className, parent) => {
   parent.appendChild(element);
   return element;
 };
-
 const searchBtn = querySelector('#searchBtn');
 const searchInput = querySelector('#searchInput');
+const notFound = querySelector('.notfound-img');
+const newsSection = querySelector('.news-section');
 
 searchBtn.addEventListener('click', () => {
   if (searchInput.value !== '') {
@@ -21,7 +22,6 @@ searchBtn.addEventListener('click', () => {
 });
 
 const handleNews = (res) => {
-  const newsSection = querySelector('.news-section');
   newsSection.textContent = '';
   if (res.error === 404 || res.data.children.length === 0) {
     newsSection.textContent = '';
@@ -29,13 +29,19 @@ const handleNews = (res) => {
     aNotFou.classList.add('notFound');
     aNotFou.textContent = "Sorry, we didn't find any Subs!";
     newsSection.appendChild(aNotFou);
+    notFound.style.display = 'block';
   } else {
     for (let i = 0; i < res.data.children.length; i += 1) {
       const card = createElement('div', 'news-card', newsSection);
       const newsImg = createElement('img', 'news-img', card);
       const len = res.data.children[i];
       const { thumbnail } = len.data;
-      if (thumbnail === 'self' || thumbnail === 'default' || thumbnail === '' || thumbnail === undefined) {
+      if (
+        thumbnail === 'self' ||
+        thumbnail === 'default' ||
+        thumbnail === '' ||
+        thumbnail === undefined
+      ) {
         newsImg.src = '../assets/Header.svg';
       } else {
         newsImg.src = thumbnail;
