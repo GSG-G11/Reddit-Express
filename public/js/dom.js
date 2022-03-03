@@ -18,19 +18,35 @@ searchBtn.addEventListener('click', () => {
     fetchData(searchInput)
       .then((response) => response.json())
       .then(handleNews);
+  } else{
+    newsSection.textContent = '';
+    const aNotFou = document.createElement('p');
+    aNotFou.classList.add('notFound');
+    aNotFou.textContent = "Please enter a valid input";
+    newsSection.appendChild(aNotFou);
+    notFound.style.display = 'block';
   }
 });
 
 const handleNews = (res) => {
   newsSection.textContent = '';
-  if (res.error === 404 || res.data.children.length === 0) {
+  if (res.error === 404) {
     newsSection.textContent = '';
     const aNotFou = document.createElement('p');
     aNotFou.classList.add('notFound');
     aNotFou.textContent = "Sorry, we didn't find any Subs!";
     newsSection.appendChild(aNotFou);
     notFound.style.display = 'block';
-  } else {
+  }else if( res.data.children.length === 0){
+    console.log(res);
+    newsSection.textContent = '';
+    const aNotFou = document.createElement('p');
+    aNotFou.classList.add('notFound');
+    aNotFou.textContent = "Sorry, we didn't find any Posts!";
+    newsSection.appendChild(aNotFou);
+    notFound.style.display = 'block';
+  }
+  else {
     for (let i = 0; i < res.data.children.length; i += 1) {
       const card = createElement('div', 'news-card', newsSection);
       const newsImg = createElement('img', 'news-img', card);
